@@ -1,12 +1,15 @@
-import { Link } from "react-router-dom"
+import { NavLink, Outlet } from "react-router-dom"
 
 const NavBar = () => {
-  return (
-    <div>
-        <Link to={`/`}>Home</Link>
-        <Link to={`/about`}>About</Link>
-    </div>
-  )
+    return (
+        <>
+            <div>
+                <NavLink to={`/`}>Home</NavLink>
+                <NavLink to={`/about`}>About</NavLink>
+            </div>
+            <div><Outlet /></div>
+        </>
+    )
 }
 
 export default NavBar
