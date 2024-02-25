@@ -1,11 +1,13 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Home from "./Home.jsx";
+import Home from "./Home";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
-import ErrorPage from "./ErrorPage.jsx";
-import About from "./About.jsx";
-import NavBar from "./NavBar.jsx";
+import ErrorPage from "./ErrorPage";
+import About from "./About";
+import NavBar from "./NavBar";
 import './index.css'
+import { store } from "./app/store";
+import { Provider } from 'react-redux'
 
 const router = createBrowserRouter([
   {
@@ -27,6 +29,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <Provider store={store}>
+      <RouterProvider router={router} />
+    </Provider>
   </React.StrictMode>
 );
