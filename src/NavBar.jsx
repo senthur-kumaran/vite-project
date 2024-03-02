@@ -17,6 +17,12 @@ const NavBar = () => {
                     >
                         About
                     </NavLink>
+                    <NavLink
+                        to={`/todos`}
+                        className={({ isActive }) => `hover:bg-gray-700 hover:text-white text-white block rounded-md px-3 py-2 text-base font-medium text-gray-300 ${isActive ? 'bg-gray-900' : '' }`}
+                    >
+                        Todos
+                    </NavLink>
                 </div>
             </nav>
             <Outlet />

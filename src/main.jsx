@@ -8,6 +8,10 @@ import NavBar from "./NavBar";
 import './index.css'
 import { store } from "./app/store";
 import { Provider } from 'react-redux'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
+import Todos from "./Todos";
+
+const queryClient = new QueryClient()
 
 const router = createBrowserRouter([
   {
@@ -23,6 +27,10 @@ const router = createBrowserRouter([
         path: "/about",
         element: <About />,
       },
+      {
+        path: "/todos",
+        element: <Todos />,
+      },
     ],
   },
 ]);
@@ -30,7 +38,9 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <Provider store={store}>
-      <RouterProvider router={router} />
+      <QueryClientProvider client={queryClient}>
+        <RouterProvider router={router} />
+      </QueryClientProvider>
     </Provider>
   </React.StrictMode>
 );
